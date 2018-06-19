@@ -5,114 +5,358 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Simple Transactional Email</title>
     <style>
-    /* -------------------------------------
-        INLINED WITH htmlemail.io/inline
-    ------------------------------------- */
-    /* -------------------------------------
-        RESPONSIVE AND MOBILE FRIENDLY STYLES
-    ------------------------------------- */
-    @media only screen and (max-width: 620px) {
-      table[class=body] h1 {
-        font-size: 28px !important;
-        margin-bottom: 10px !important;
-      }
-      table[class=body] p,
-            table[class=body] ul,
-            table[class=body] ol,
-            table[class=body] td,
-            table[class=body] span,
-            table[class=body] a {
-        font-size: 16px !important;
-      }
-      table[class=body] .wrapper,
-            table[class=body] .article {
-        padding: 10px !important;
-      }
-      table[class=body] .content {
-        padding: 0 !important;
-      }
-      table[class=body] .container {
-        padding: 0 !important;
-        width: 100% !important;
-      }
-      table[class=body] .main {
-        border-left-width: 0 !important;
-        border-radius: 0 !important;
-        border-right-width: 0 !important;
-      }
-      table[class=body] .btn table {
-        width: 100% !important;
-      }
-      table[class=body] .btn a {
-        width: 100% !important;
-      }
-      table[class=body] .img-responsive {
-        height: auto !important;
-        max-width: 100% !important;
-        width: auto !important;
-      }
-    }
+      /* -------------------------------------
+          GLOBAL RESETS
+      ------------------------------------- */
+      img {
+        border: none;
+        -ms-interpolation-mode: bicubic;
+        max-width: 100%; }
 
-    /* -------------------------------------
-        PRESERVE THESE STYLES IN THE HEAD
-    ------------------------------------- */
-    @media all {
-      .ExternalClass {
-        width: 100%;
+      body {
+        background-color: #f6f6f6;
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+        padding: 0;
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%; }
+
+      table {
+        border-collapse: separate;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        width: 100%; }
+        table td {
+          font-family: sans-serif;
+          font-size: 14px;
+          vertical-align: top; }
+
+      /* -------------------------------------
+          BODY & CONTAINER
+      ------------------------------------- */
+
+      .body {
+        background-color: #f0f0f0;
+        width: 100%; }
+
+      /* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+      .container {
+        display: block;
+        Margin: 0 auto !important;
+        /* makes it centered */
+        max-width: 580px;
+        padding: 10px;
+        width: 580px; }
+
+      /* This should also be a block element, so that it will fill 100% of the .container */
+      .content {
+        box-sizing: border-box;
+        display: block;
+        Margin: 0 auto;
+        max-width: 580px;
+        padding: 10px; }
+
+      /* -------------------------------------
+          HEADER, FOOTER, MAIN
+      ------------------------------------- */
+      .main {
+        background: #ffffff;
+        border-radius: 3px;
+        width: 100%; }
+
+      .wrapper {
+        box-sizing: border-box;
+        padding: 20px; }
+
+      .content-block {
+        padding-bottom: 10px;
+        padding-top: 10px;
       }
-      .ExternalClass,
-            .ExternalClass p,
-            .ExternalClass span,
-            .ExternalClass font,
-            .ExternalClass td,
-            .ExternalClass div {
-        line-height: 100%;
+
+      .footer {
+        clear: both;
+        Margin-top: 10px;
+        text-align: center;
+        width: 100%; }
+        .footer td,
+        .footer p,
+        .footer span,
+        .footer a {
+          color: #999999;
+          font-size: 12px;
+          text-align: center; }
+
+      /* -------------------------------------
+          TYPOGRAPHY
+      ------------------------------------- */
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #172b4d;
+        font-family: sans-serif;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0;
+        Margin-bottom: 30px; }
+
+      h1 {
+        font-size: 25px;
+        font-weight: 300;
+        text-align: left;
+/*        text-transform: capitalize;*/
+        font-weight: bold;
       }
-      .apple-link a {
-        color: inherit !important;
-        font-family: inherit !important;
-        font-size: inherit !important;
-        font-weight: inherit !important;
-        line-height: inherit !important;
-        text-decoration: none !important;
+
+      p,
+      ul,
+      ol {
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+        Margin-bottom: 15px;
+        color:  #172b4d; 
+        }
+        p li,
+        ul li,
+        ol li {
+/*          list-style-position: inside;*/
+          margin-top: 13px; }
+
+      a {
+        color: #3498db;
+        text-decoration: underline; }
+
+      /* -------------------------------------
+          BUTTONS
+      ------------------------------------- */
+      .btn {
+        box-sizing: border-box;
+        width: 100%; }
+        .btn > tbody > tr > td {
+          padding-bottom: 15px; }
+        .btn table {
+          width: auto; }
+        .btn table td {
+          background-color: #ffffff;
+          border-radius: 5px;
+          text-align: center; }
+        .btn a {
+          background-color: #ffffff;
+          border: solid 1px #3498db;
+          border-radius: 5px;
+          box-sizing: border-box;
+          color: #3498db;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 14px;
+          font-weight: bold;
+          margin: 0;
+          padding: 12px 25px;
+          text-decoration: none;
+          text-transform: capitalize; }
+
+      .btn-primary table td {
+        background-color: #3498db; }
+
+      .btn-primary a {
+        background-color: #3498db;
+        border-color: #3498db;
+        color: #ffffff; }
+
+      /* -------------------------------------
+          OTHER STYLES THAT MIGHT BE USEFUL
+      ------------------------------------- */
+      .last {
+        margin-bottom: 0; }
+
+      .first {
+        margin-top: 0; }
+
+      .align-center {
+        text-align: center; }
+
+      .align-right {
+        text-align: right; }
+
+      .align-left {
+        text-align: left; }
+
+      .clear {
+        clear: both; }
+
+      .mt0 {
+        margin-top: 0; }
+
+      .mb0 {
+        margin-bottom: 0; }
+
+      .preheader {
+        color: transparent;
+        display: none;
+        height: 0;
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+        overflow: hidden;
+        mso-hide: all;
+        visibility: hidden;
+        width: 0; }
+
+      .powered-by a {
+        text-decoration: none; }
+
+      hr {
+        border: 0;
+        border-bottom: 1px solid #f0f0f0;
+        Margin: 20px 0; }
+        
+        
+    
+      /* -------------------------------------
+          CUSTOM STYLES
+      ------------------------------------- */    
+        .app-title {
+            font-size: 15px;
+            margin: 0px 0px 0px 5px;
+            color: #b7b7b7;
+            font-weight: bold;
+        }
+        
+        .label-style {
+            background-color: #e5e5e5;
+            font-family: "arial";
+            color: #172b4d;
+            padding: 2px;
+            font-weight: bold;
+            
+        }
+      
+      .error-list {
+        background-color: #fff1f1;
+        border-radius: 4px;
+        padding-top: 2px;
+        padding-bottom: 10px;
+     
+        
       }
-      .btn-primary table td:hover {
-        background-color: #34495e !important;
-      }
-      .btn-primary a:hover {
-        background-color: #34495e !important;
-        border-color: #34495e !important;
-      }
-    }
+
+      /* -------------------------------------
+          RESPONSIVE AND MOBILE FRIENDLY STYLES
+      ------------------------------------- */
+      @media only screen and (max-width: 620px) {
+        table[class=body] h1 {
+          font-size: 28px !important;
+          margin-bottom: 10px !important; }
+        table[class=body] p,
+        table[class=body] ul,
+        table[class=body] ol,
+        table[class=body] td,
+        table[class=body] span,
+        table[class=body] a {
+          font-size: 16px !important; }
+        table[class=body] .wrapper,
+        table[class=body] .article {
+          padding: 10px !important; }
+        table[class=body] .content {
+          padding: 0 !important; }
+        table[class=body] .container {
+          padding: 0 !important;
+          width: 100% !important; }
+        table[class=body] .main {
+          border-left-width: 0 !important;
+          border-radius: 0 !important;
+          border-right-width: 0 !important; }
+        table[class=body] .btn table {
+          width: 100% !important; }
+        table[class=body] .btn a {
+          width: 100% !important; }
+        table[class=body] .img-responsive {
+          height: auto !important;
+          max-width: 100% !important;
+          width: auto !important; }}
+
+      /* -------------------------------------
+          PRESERVE THESE STYLES IN THE HEAD
+      ------------------------------------- */
+      @media all {
+        .ExternalClass {
+          width: 100%; }
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+          line-height: 100%; }
+        .apple-link a {
+          color: inherit !important;
+          font-family: inherit !important;
+          font-size: inherit !important;
+          font-weight: inherit !important;
+          line-height: inherit !important;
+          text-decoration: none !important; }
+        .btn-primary table td:hover {
+          background-color: #34495e !important; }
+        .btn-primary a:hover {
+          background-color: #34495e !important;
+          border-color: #34495e !important; } }
+
     </style>
   </head>
-  <body class="" style="background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
-    <table border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;">
+  <body class="" style="background-color: #f6f6f6;font-family: sans-serif;-webkit-font-smoothing: antialiased;font-size: 14px;line-height: 1.4;margin: 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <table border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;background-color: #f0f0f0;">
       <tr>
-        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
-        <td class="container" style="font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;">
-          <div class="content" style="box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;">
+        <td style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;">&nbsp;</td>
+        <td class="container" style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;display: block;max-width: 580px;padding: 0 !important;width: 100% !important;margin: 0 auto !important;">
+          <div class="content" style="box-sizing: border-box;display: block;margin: 0 auto;max-width: 580px;padding: 0 !important;">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">This is preheader text. Some clients will show this text as a preview.</span>
-            <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;">
+            <span class="preheader" style="color: transparent;display: none;height: 0;max-height: 0;max-width: 0;opacity: 0;overflow: hidden;mso-hide: all;visibility: hidden;width: 0;font-size: 16px !important;">ORI Validation Error - Your action is required</span>
+            <table class="main" style="border-collapse: separate;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;background: #ffffff;border-radius: 0 !important;border-left-width: 0 !important;border-right-width: 0 !important;">
 
               <!-- START MAIN CONTENT AREA -->
               <tr>
-                <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
-                  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                <td class="wrapper" style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;box-sizing: border-box;padding: 10px !important;">
+                  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;">
+                      <tr>
+                        <td style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;">
+                          <img src="projectavatar.svg" width="30" style="border: none;-ms-interpolation-mode: bicubic;max-width: 100%;"><span class="app-title" style="font-size: 16px !important;margin: 0px 0px 0px 5px;color: #b7b7b7;font-weight: bold;"> ORI Management System</span>
+                          </td>
+                        
+                      </tr>
                     <tr>
-                      <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
-                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
+                     
+                      <td style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;">
+                        <hr style="border: 0;border-bottom: 1px solid #f0f0f0;margin: 20px 0;">
+                        <h1 style="color: #172b4d;font-family: sans-serif;font-weight: bold;line-height: 1.4;margin: 0;margin-bottom: 30px;font-size: 25px;text-align: left;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ5SURBVGhD7Za/SxxBHMXXwrvkFJvEGEzprxy5JBiVtDbBIgQRBAtRBEkODSExegZsrhCE4AXBwkILJY0gRHs5Oc9aFMHGv0A7K4sQ2XG+y+ywmfvu7uy5dzsH8+ADw87b3e9b3XdraGlpaWlpqSpSSDw1i/GfFvmGFna4tkSOjXrzMH5GinECWGt6jG3Xjsyj2Iwdgoehx9h2bcg8amym/07XJUHoMdhjNvVlFmNrYggb2GM2tWUW6lP0yf/DQgCwBx5mV1f0ie9jAZyAh9nVlHkY+4ANjgFedppaYnV7gQ2NYXlVrGOsbv1Qro7d6vZ887GDR//tAcrVsVvdTr7rI2P9by3SA70l+4AydexVtzC8HWT6fU/JPqBMHXvV7dfBNzzIN7rGPEDkdexXt7ND3TzI/PBr1GMTWR3L1O3CyCseBNaYxyayOpap2+xoigdZHE+hHidVr2O3uhWB4e0gSxMvUI+TqtexW92K5D4meZBfn5KoR6Rqdez3detkJf2cB1n93IV6RKpWx151K7L2pZMHgTXmwah4HQf5ugU2Zjp4kM1MO+pxo2J1HPTrFtjKtPEgv3+0oR43KlbH9Al9x27oxeVuE/9ovNprQj1ewD3Z7cORbN2GTeh1LFu3IreFB+Rk/Qk5XW+21pjHj9DqOEjdiiw7fkdgjXn8CK2Og9Stk7/5hzyEDRzDvH7cu46D1q1IdvQlDwFrzCNL2XVcTt2K3OwnyEGuleRzz6w15pGl7DqmJ05jF4wSmImNJy960h52sSihL/4fNp686As2h10sSuh7MsvGkxchRh38KSnb9CI7UQIzmIX4FMzExtPS0tLS0gpRhnEHgiDkpHTZhoAAAAAASUVORK5CYII=" width="35" style="border: none;-ms-interpolation-mode: bicubic;max-width: 100%;">You submitted invalid information</h1>
+                        
+                          <p style="font-family: sans-serif;font-size: 16px !important;font-weight: normal;margin: 0;margin-bottom: 15px;color: #172b4d;"><b><h3 style="color: #172b4d;font-family: sans-serif;font-weight: 400;line-height: 1.4;margin: 0;margin-bottom: 30px;"><a href="https://idbinvest.atlassian.net/projects/ORI/board?issue-key=ORI-722" style="color: #3498db;text-decoration: underline;font-size: 16px !important;">Title of Incident goes here</a> (ORI -722) </h3></b> </p>
+                          <p style="font-family: sans-serif;font-size: 16px !important;font-weight: normal;margin: 0;margin-bottom: 15px;color: #172b4d;">The following validation issues were found on your incident submission: </p>
+                          <ul class="error-list" style="font-family: sans-serif;font-size: 16px !important;font-weight: normal;margin: 0;margin-bottom: 15px;color: #172b4d;background-color: #fff1f1;border-radius: 4px;padding-top: 2px;padding-bottom: 10px;">
+                              <li style="margin-top: 13px;">Your incident must include an <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">Attachment</span></li>
+                              <li style="margin-top: 13px;">Both <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Process Affected</span> and <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">Other Process</span> input fields were filled out. Please fill just one.</li>
+                              <li style="margin-top: 13px;">The <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Incident end date</span> you selected is less than either <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI incident occurrence date</span> or <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI incident future date</span></li>
+                            <li style="margin-top: 13px;">The <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI incident occurrence date</span> you selected is greater than the <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI incident discovery date</span></li>
+                            <li style="margin-top: 13px;">You can't enter a date that is in the future</li>
+                            <li style="margin-top: 13px;"><span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Recovery Amount</span> was greater than <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Amount of Loss</span></li>
+                            <li style="margin-top: 13px;"><span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Net Loss Amount</span> was greater than <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Amount of Loss</span></li>
+                            <li style="margin-top: 13px;">The sum total of <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Net Loss amount</span> and <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Recovery amount</span> was greater than <span class="label-style" style="background-color: #e5e5e5;font-family: &quot;arial&quot;;color: #172b4d;padding: 2px;font-weight: bold;font-size: 16px !important;">ORI Amount of Loss</span></li>
+                          </ul>
+                          <p style="font-family: sans-serif;font-size: 16px !important;font-weight: normal;margin: 0;margin-bottom: 15px;color: #172b4d;">Your incident ticket's status has reverted to "Open", and it must pass validation before review.</p>
+                        
+                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;box-sizing: border-box;">
                           <tbody>
                             <tr>
-                              <td align="left" style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;">
-                                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                              <td align="left" style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;padding-bottom: 15px;">
+                                <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100% !important;">
                                   <tbody>
                                     <tr>
-                                      <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;"> <a href="http://htmlemail.io" target="_blank" style="display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;">Call To Action</a> </td>
+                                      <td style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;background-color: #3498db;border-radius: 5px;text-align: center;"> <a href="https://idbinvest.atlassian.net/projects/ORI/board?issue-key=ORI-722" target="_blank" style="color: #ffffff;text-decoration: none;background-color: #3498db;border: solid 1px #3498db;border-radius: 5px;box-sizing: border-box;cursor: pointer;display: inline-block;font-size: 16px !important;font-weight: bold;margin: 0;padding: 12px 25px;text-transform: capitalize;border-color: #3498db;width: 100% !important;">Fix incident</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -120,8 +364,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Good luck! Hope it works.</p>
+                        
                       </td>
                     </tr>
                   </table>
@@ -132,17 +375,17 @@
             </table>
 
             <!-- START FOOTER -->
-            <div class="footer" style="clear: both; Margin-top: 10px; text-align: center; width: 100%;">
-              <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+            <div class="footer" style="clear: both;margin-top: 10px;text-align: center;width: 100%;">
+              <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate;mso-table-lspace: 0pt;mso-table-rspace: 0pt;width: 100%;">
                 <tr>
-                  <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                    <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                    <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">Unsubscribe</a>.
+                  <td class="content-block" style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;padding-bottom: 10px;padding-top: 10px;color: #999999;text-align: center;">
+                    <span class="apple-link" style="color: #999999;font-size: 16px !important;text-align: center;">Operational Risk Incident Management System</span>
+                    
                   </td>
                 </tr>
                 <tr>
-                  <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                    Powered by <a href="http://htmlemail.io" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">HTMLemail</a>.
+                  <td class="content-block powered-by" style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;padding-bottom: 10px;padding-top: 10px;color: #999999;text-align: center;">
+                    Powered by ITG @ IDB Invest.
                   </td>
                 </tr>
               </table>
@@ -152,7 +395,7 @@
           <!-- END CENTERED WHITE CONTAINER -->
           </div>
         </td>
-        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
+        <td style="font-family: sans-serif;font-size: 16px !important;vertical-align: top;">&nbsp;</td>
       </tr>
     </table>
   </body>
