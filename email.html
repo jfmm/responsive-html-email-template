@@ -96,7 +96,7 @@
       h2,
       h3,
       h4 {
-        color: #000000;
+        color: #172b4d;
         font-family: sans-serif;
         font-weight: 400;
         line-height: 1.4;
@@ -104,9 +104,9 @@
         Margin-bottom: 30px; }
 
       h1 {
-        font-size: 35px;
+        font-size: 25px;
         font-weight: 300;
-        text-align: center;
+        text-align: left;
         text-transform: capitalize; }
 
       p,
@@ -116,12 +116,14 @@
         font-size: 14px;
         font-weight: normal;
         margin: 0;
-        Margin-bottom: 15px; }
+        Margin-bottom: 15px;
+        color:  #172b4d; 
+        }
         p li,
         ul li,
         ol li {
-          list-style-position: inside;
-          margin-left: 5px; }
+/*          list-style-position: inside;*/
+          margin-top: 13px; }
 
       a {
         color: #3498db;
@@ -210,6 +212,27 @@
         border: 0;
         border-bottom: 1px solid #f6f6f6;
         Margin: 20px 0; }
+        
+        
+    
+      /* -------------------------------------
+          CUSTOM STYLES
+      ------------------------------------- */    
+        .app-title {
+            font-size: 13px;
+            margin: 0px 0px 0px 5px;
+            color: #a7a7a7;
+            font-weight: bold;
+        }
+        
+        .label-style {
+            background-color: #ededed;
+            font-family: "arial";
+            color: #172b4d;
+            padding: 2px;
+            font-weight: bold;
+            
+        }
 
       /* -------------------------------------
           RESPONSIVE AND MOBILE FRIENDLY STYLES
@@ -282,17 +305,35 @@
           <div class="content">
 
             <!-- START CENTERED WHITE CONTAINER -->
-            <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+            <span class="preheader">ORI Validation Error - Your action is required</span>
             <table class="main">
 
               <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class="wrapper">
                   <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td>
+                          <img src="projectavatar.svg" width="40"><span class="app-title">ORI Management System</span>
+                          </td>
+                      </tr>
                     <tr>
                       <td>
-                        <p>Hi there,</p>
-                        <p>Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
+                          <br>
+                        <h1>You entered invalid information</h1>
+                        
+                          <p><b><h3><a href="https://idbinvest.atlassian.net/projects/ORI/board?issue-key=ORI-722">Risk ticket summary</a> ORI -722</h3></b> </p>
+                          <p>The following validation issues were found on your last incident submission: </p>
+                          <ul>
+                            <li>You forgot to include an attachment</li>
+                            <li>ORI Process Affected and Other Process are both filled out</li>
+                              <li>The <span class="label-style">End Date</span> you selected is less than <span class="label-style">Occurrence Date</span> or <span class="label-style">Future Date</span></li>
+                            <li>The <span class="label-style">Occurrence Date</span> you selected is greater than the <span class="label-style">Discovery Date</span></li>
+                            <li>#6 still pending</li>
+                              <li>The amount set in <span class="label-style">ORI Net Loss Amount</span> or ORI Recovery Amount were enterred incorrectly</li>
+                          </ul>
+                          <p>Your incident ticket's status has reverted to "Open", and it must pass validation before review.</p>
+                        
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
                             <tr>
@@ -300,7 +341,7 @@
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tbody>
                                     <tr>
-                                      <td> <a href="http://htmlemail.io" target="_blank">Call To Action</a> </td>
+                                      <td> <a href="https://idbinvest.atlassian.net/projects/ORI/board?issue-key=ORI-722" target="_blank">Fix incident</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -308,8 +349,7 @@
                             </tr>
                           </tbody>
                         </table>
-                        <p>This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
-                        <p>Good luck! Hope it works.</p>
+                        
                       </td>
                     </tr>
                   </table>
@@ -324,13 +364,13 @@
               <table border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                    <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                    <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
+                    <span class="apple-link">Operational Risk Incident Management System</span>
+                    
                   </td>
                 </tr>
                 <tr>
                   <td class="content-block powered-by">
-                    Powered by <a href="http://htmlemail.io">HTMLemail</a>.
+                    Powered by ITG @ IDB Invest</a>.
                   </td>
                 </tr>
               </table>
